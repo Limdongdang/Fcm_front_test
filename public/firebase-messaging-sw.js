@@ -10,6 +10,11 @@ firebase.initializeApp({
     appId: '1:661055039703:web:15908d793c8c51f277a892',
     measurementId: 'G-W06W62HXXN',
 });
-// Retrieve an instance of Firebase Messaging so that it can handle background
-// messages.
+
 const messaging = firebase.messaging();
+
+// 백그라운드 상태에서 메시지 수신
+messaging.onBackgroundMessage(function (payload) {
+    // 여기에 알림 메시지 처리 코드를 추가
+    console.log('[firebase-messaging-sw.js] Received background message ', payload);
+});
